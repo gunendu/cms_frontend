@@ -19,16 +19,13 @@ angular.module('myApp.view1', ['ngRoute'])
   }
   $http(options)
   .then(function(response) {
-    console.log("response is",response);
     $scope.response = response.data;
   }).catch(function (err) {
     console.log("error is",err);
   });
 
   $scope.upvote = function(item) {
-    console.log("upvote is",item.article_id);
     var payload = {"article_id":item.article_id};
-    console.log("payload is",payload);
     var options = {
       method: 'PUT',
       url: 'http://localhost:8000/api/article/',
